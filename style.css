@@ -1,0 +1,36 @@
+/* Personalizzazione aggiuntiva */
+
+/* Cambia il font */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Migliora la visibilità dei bottoni */
+.btn-primary {
+    background-color: #14a179;
+    border-color: #14a179;
+}
+
+.btn-primary:hover {
+    background-color: #14a179;
+    border-color: #14a179;
+}
+
+/* Personalizza il colore di sfondo e il padding per il jumbotron */
+.jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(35, 31, 31, 0.1);
+}
+
+/* Personalizza il colore dei bordi delle card */
+.card {
+    border-color: rgba(0, 0, 0, 0.125);
+}
+
+/* Personalizza il colore di sfondo dei pulsanti nelle risposte */
+.form-check-input:checked + .form-check-label {
+    background-color: #14a179;
+    color: white;
+}

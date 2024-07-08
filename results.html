@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulatore Test Medicina - Risultati</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="mb-4">Risultati del Quiz</h2>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Punteggio ottenuto: {{ score }}</h5>
+            </div>
+        </div>
+        
+        {% if correct_answers %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Risposte corrette:</h5>
+                <ul>
+                    {% for question, correct_answer in correct_answers %}
+                    <li><strong>{{ question }}</strong>: {{ correct_answer }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if wrong_answers %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Risposte sbagliate:</h5>
+                <ul>
+                    {% for question, correct_answer, selected_answer in wrong_answers %}
+                    <li><strong>{{ question }}</strong>:
+                        {% if selected_answer %}
+                        hai risposto "{{ selected_answer }}", la risposta corretta era "{{ correct_answer }}"
+                        {% else %}
+                        non hai risposto a questa domanda, la risposta corretta era "{{ correct_answer }}"
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        
+        <a href="/" class="btn btn-primary">Torna alla Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulatore Test Medicina - Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="mb-4">Quiz - {{ subject }}</h2>
+        <form action="/results" method="POST">
+            {% for question in questions %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ loop.index }}. {{ question.Question }}</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question_{{ loop.index0 }}" id="question_{{ loop.index0 }}_A" value="{{ question['Answer A'] }}" required>
+                        <label class="form-check-label" for="question_{{ loop.index0 }}_A">{{ question['Answer A'] }}</label><br>
+                        
+                        <input class="form-check-input" type="radio" name="question_{{ loop.index0 }}" id="question_{{ loop.index0 }}_B" value="{{ question['Answer B'] }}" required>
+                        <label class="form-check-label" for="question_{{ loop.index0 }}_B">{{ question['Answer B'] }}</label><br>
+                        
+                        <input class="form-check-input" type="radio" name="question_{{ loop.index0 }}" id="question_{{ loop.index0 }}_C" value="{{ question['Answer C'] }}" required>
+                        <label class="form-check-label" for="question_{{ loop.index0 }}_C">{{ question['Answer C'] }}</label><br>
+                        
+                        <input class="form-check-input" type="radio" name="question_{{ loop.index0 }}" id="question_{{ loop.index0 }}_D" value="{{ question['Answer D'] }}" required>
+                        <label class="form-check-label" for="question_{{ loop.index0 }}_D">{{ question['Answer D'] }}</label><br>
+                        
+                        <input class="form-check-input" type="radio" name="question_{{ loop.index0 }}" id="question_{{ loop.index0 }}_E" value="{{ question['Answer E'] }}" required>
+                        <label class="form-check-label" for="question_{{ loop.index0 }}_E">{{ question['Answer E'] }}</label><br>
+                        
+                        <!-- Aggiunta di un'opzione per non rispondere -->
+                        <input class="form-check-input" type="radio" name="question_{{ loop.index0 }}" id="question_{{ loop.index0 }}_None" value="" required>
+                        <label class="form-check-label" for="question_{{ loop.index0 }}_None">Non rispondere</label><br>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <input type="hidden" name="subject" value="{{ subject }}">
+            <button type="submit" class="btn btn-primary">Invia le risposte</button>
+        </form>
+    </div>
+</body>
+</html>
